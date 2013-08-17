@@ -11,7 +11,8 @@ DEST=$(SRC:.scad=.gcode)
 all: $(DEST)
 
 %.stl: %.scad
-	openscad -m make -o $@ -d $@.deps $<
+	#HACK: Sub-shell openscad to fix broken pipe message
+	$(shell openscad -m make -o "$@" -d "$@.deps" "$<")
 
 %.gcode: %.stl $(SLIC3R)
 	slic3r $(addprefix --load ,$(SLIC3R)) -o "$@" "$<"
