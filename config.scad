@@ -5,7 +5,14 @@
  * License CC BY 3.0
  */
 
-$fa = 1;
-$fs = 1;
 preview = 1;
+$fa = 1;
+$fs = 1 - .5*(1-preview);
+kerf = .2;
+PART = 0; //all
 
+// preview colors
+color_steal = [.8, .8, .8];
+color_wood = [.3, .3, 0];
+color_print = [0, .8, 0];
+color_plastic = [.7, 1, .7];
