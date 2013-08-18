@@ -30,7 +30,7 @@ function bearing60_width(size) = bearing60_size[size][2];
 
 module bearing60(
 	size = 8,
-    id
+	id
 ) {
 	bearing(
 		bearing60_size[size],
@@ -50,7 +50,7 @@ module bearing(
 	id
 ) {
 	part(id, str("Radial bearing: ID", size[0], "mm, OD", size[1], "mm, width", size[2], "mm"))
-    color(color_steal) {
+	color(color_steal) {
 		translate([
 			0,
 			0,

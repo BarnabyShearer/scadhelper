@@ -12,7 +12,7 @@ XOFF = 0;
 YOFF = 0;
 
 module drawing() {
-    //create blueprint
+	//create blueprint
 	if(preview==0) {
 		projection(cut=true) translate([
 			XOFF,
@@ -53,8 +53,8 @@ module kerf_cylinder(
 }
 
 module part(
-    id,
-    name
+	id,
+	name
 ) {
 	if(PART<1 || PART==id) {
 		echo(str("PART", id, ":", name));
