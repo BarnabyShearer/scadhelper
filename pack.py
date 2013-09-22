@@ -4,7 +4,7 @@
 # Pack 2d rectangles in a fast (but non-optimal) way.
 #
 # Copyright 2013 <b@Zi.is>
-# License CC BY .30
+# License GPLv2
 
 import fileinput
 
