@@ -7,15 +7,27 @@
 
 include <../main.scad>;
 
-// metric bolt sizes
-function m_hole(size) = size*1.1/2;
-function m_pilot(size) = size*.9/2;
+function m_washer_width(size) = size*.2;
+function m_nut_width(size) = size*.8;
+function m_nut_r(size) = size*1.8/2;
+
+m_tap = [
+    0,
+    1.6,
+    2.5,
+    3.3,
+    4.2,
+    5,
+    6.8,
+    8.5,
+    10.2
+];
 
 module m_washer(
 	size = 3,
 	id
 ) {
-	part(id, str("Washer M", size)) color(color_steal) {
+	part(id, str("Washer M", size)) color(color_steel) {
 		difference() {
 			cylinder(
 				r = size/2*2,
@@ -32,7 +44,7 @@ module m_washer(
 		0,
 		size*.2
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
 
@@ -40,7 +52,7 @@ module m_nut(
 	size = 3,
 	id
 ) {
-	part(id, str("Nut M", size)) color(color_steal) {
+	part(id, str("Nut M", size)) color(color_steel) {
 		difference() {
 			cylinder(
 				r = size*1.8/2,
@@ -58,7 +70,7 @@ module m_nut(
 		0,
 		size*.8
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
 
@@ -68,7 +80,7 @@ module m_nylock(
 	size = 3,
 	id
 ) {
-	part(id, str("Nylock M", size)) color(color_steal) {
+	part(id, str("Nylock M", size)) color(color_steel) {
 		difference() {
 			union() {
 				cylinder(
@@ -98,6 +110,16 @@ module m_nylock(
 		0,
 		size
 	]) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
+}
+
+module m_tap(
+    rod,
+    h
+) {
+    kerf_cylinder(
+        r = m_tap[rod]/2,
+        h = h
+    );
 }

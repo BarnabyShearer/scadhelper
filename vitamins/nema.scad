@@ -27,7 +27,7 @@ nema_sizes = [
 	[],
 	[],
 	[],
-	[42.2, 31.04, 3, 5]
+	[42.2, 31.04, 3]
 ];
 
 function nema_faceplate(size) = [nema_sizes[size][0], nema_sizes[size][0]];
@@ -56,37 +56,40 @@ module nema_faceplate_drill(
 }
 
 module nema(
-	size = 17,
+    motor = [
+        17, //Size
+        20, //Shaft length
+        5   //Shaft diamiter
+    ],
 	depth = 48,
-	shaft = 20,
 	id
 ) {
-	part(id, str("NEMA", size, depth,"mm long with", shaft, "mm shaft")) {	
-		color(color_steal) cylinder(
-			r = nema_sizes[size][3]/2,
-			h = shaft
+	part(id, str("NEMA", motor[0], " ", depth,"mm long with ", motor[1], "x", motor[2], "mm shaft")) {	
+		color(color_steel) cylinder(
+			r = motor[2]/2,
+			h = motor[1]
 		);
 		difference() {
 			union() {
-				color(color_steal) translate([
-					-nema_sizes[size][0]/2,
-					-nema_sizes[size][0]/2,
+				color(color_steel) translate([
+					-nema_sizes[motor[0]][0]/2,
+					-nema_sizes[motor[0]][0]/2,
 					-5
 				]) {
 					cube([
-						nema_sizes[size][0],
-						nema_sizes[size][0],
+						nema_sizes[motor[0]][0],
+						nema_sizes[motor[0]][0],
 						5
 					]);
 				}
 				color([0,0,0]) translate([
-					-nema_sizes[size][0]/2,
-					-nema_sizes[size][0]/2,
+					-nema_sizes[motor[0]][0]/2,
+					-nema_sizes[motor[0]][0]/2,
 					-depth
 				]) {
 					cube([
-						nema_sizes[size][0],
-						nema_sizes[size][0],
+						nema_sizes[motor[0]][0],
+						nema_sizes[motor[0]][0],
 						depth-5
 					]);
 				}
@@ -94,12 +97,12 @@ module nema(
 			for(x=[0:1]) {
 				for(y=[0:1]) {
 					translate([
-						-nema_sizes[size][1]/2 + nema_sizes[size][1]*x,
-						-nema_sizes[size][1]/2 + nema_sizes[size][1]*y,
+						-nema_sizes[motor[0]][1]/2 + nema_sizes[motor[0]][1]*x,
+						-nema_sizes[motor[0]][1]/2 + nema_sizes[motor[0]][1]*y,
 						-5
 					]) {
 						cylinder(
-							r = nema_sizes[size][2]/2,
+							r = nema_sizes[motor[0]][2]/2,
 							h = 6
 						);
 					}
@@ -110,8 +113,8 @@ module nema(
 	translate([
 		0,
 		0,
-		shaft
+		motor[1]
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
