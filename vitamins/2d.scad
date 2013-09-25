@@ -16,12 +16,14 @@ module 2d(
         "MDF",
         color_wood
     ],
+    drill = [0, 0, 0, 0],
+    drill_offset = [[0, 0], [0, 0], [0, 0], [0, 0]],
 	id
 ) {
-	part(id, str(material[0], "mm ", material[1], " ", size[0] + kerf*(1-preview), "x", size[1] + kerf*(1-preview), "mm"))
     if($children!=1) {
         echo("ERROR: Openscad's $children bug means this must have exactly 1 child");
     }
+	part(id, str(material[0], "mm ", material[1], " ", size[0] + kerf*(1-preview), "x", size[1] + kerf*(1-preview), "mm"))
 	drawing()
    	difference() {
     	translate([
@@ -41,6 +43,22 @@ module 2d(
             0
         ] * (1-preview)) {
     		if($children>0) for (i = [0:$children-1]) e() child(i);
+        }
+        for(x=[0,1]) {
+            for(y=[0,1]) {
+                if(drill[2*x + y] > 0) {
+                    translate([
+                        (size[0]/2 - material[0]/2)*(2*x-1) + drill_offset[2*x + y][0],
+                        (size[1]/2 - material[0]/2)*(2*y-1) + drill_offset[2*x + y][1],
+                        0
+                    ]) {
+                        #kerf_cylinder(
+                            r = drill[2*x + y]/2,
+                            h = material[0]      
+                        );
+                    }
+                }
+            }
         }
 	}
 }
