@@ -20,7 +20,7 @@ module coupling(
 		0,
 		-h/4
 	]) {
-		color(color_steal) {
+		color(color_steel) {
 			difference() {
 				cylinder(
 					r = max(d1,d2),
@@ -61,6 +61,6 @@ module coupling(
 		0,
 		h/2
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }

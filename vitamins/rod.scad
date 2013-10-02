@@ -15,7 +15,7 @@ module rod(
 	id
 ) {
 	part(id, str("Smooth rod ", r*2, "mm x ", h, "mm"))
-	color(color_steal) {
+	color(color_steel) {
 		cylinder(
 			r = r,
 			h = h
@@ -26,7 +26,7 @@ module rod(
 		0,
 		h
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
 
@@ -48,7 +48,7 @@ module threaded_rod(
 		);
 	
 		/* Proper version but too slow
-		color(color_steal) {
+		color(color_steel) {
 			linear_extrude(
 				height = h,
 				twist = -h/pitch*360
@@ -67,7 +67,7 @@ module threaded_rod(
 		0,
 		h
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
 

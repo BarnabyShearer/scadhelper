@@ -14,7 +14,11 @@ bearing60_size = [
 	[],
 	[],
 	[],
-	[],
+	[
+        6,
+        17,
+        6
+    ],
 	[],
 	[
 		8,
@@ -30,7 +34,7 @@ function bearing60_width(size) = bearing60_size[size][2];
 
 module bearing60(
 	size = 8,
-    id
+	id
 ) {
 	bearing(
 		bearing60_size[size],
@@ -39,9 +43,9 @@ module bearing60(
 	translate([
 		0,
 		0,
-		bearing60_size[size][2]/2
+		bearing60_size[size][2]
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
 
@@ -50,29 +54,23 @@ module bearing(
 	id
 ) {
 	part(id, str("Radial bearing: ID", size[0], "mm, OD", size[1], "mm, width", size[2], "mm"))
-    color(color_steal) {
-		translate([
-			0,
-			0,
-			-size[2]/2
-		]) {
-			difference() {
-				cylinder(
-					r = size[1]/2,
-					h = size[2]
-				);
-				e() cylinder(
-					r = size[0]/2,
-					h = size[2]
-				);
-			}
+	color(color_steel) {
+		difference() {
+			cylinder(
+				r = size[1]/2,
+				h = size[2]
+			);
+			e() cylinder(
+				r = size[0]/2,
+				h = size[2]
+			);
 		}
 	}
 	translate([
 		0,
 		0,
-		size[2]/2
+		size[2]
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }

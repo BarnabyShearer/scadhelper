@@ -32,7 +32,7 @@ module linear_bearing(
 	size = 8,
 	id
 ) {
-	part(id, str("Linear bearing lm", size, "uu")) color(color_steal) {
+	part(id, str("Linear bearing lm", size, "uu")) color(color_steel) {
 		translate([
 			0,
 			0,
@@ -81,6 +81,6 @@ module linear_bearing(
 		0,
 		lmXuu[size][2]/2
 	] * preview) {
-		if($children>0) for (i = [0 : $children]) child(i);
+		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
