@@ -16,3 +16,4 @@ color_steel = [.8, .8, .8];
 color_wood = [.3, .3, 0];
 color_print = [0, .8, 0];
 color_plastic = [.7, 1, .7];
+color_brass = [181/255, 166/255, 66/255];

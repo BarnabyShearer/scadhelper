@@ -24,10 +24,34 @@ bearing60_size = [
 		8,
 		22,
 		7
+	],
+    [],
+    [
+        10,
+        22,
+        6
+    ]
+];
+
+bearing67002_size = [
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[
+		10,
+		15,
+		4
 	]
 ];
 
-bearing60();
+//bearing60();
 
 function bearing60_offset(size) = bearing60_size[size][1] - bearing60_size[size][0];
 function bearing60_width(size) = bearing60_size[size][2];

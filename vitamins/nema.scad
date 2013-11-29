@@ -33,24 +33,24 @@ nema_sizes = [
 function nema_faceplate(size) = [nema_sizes[size][0], nema_sizes[size][0]];
 
 module nema_faceplate_drill(
-	size = 17
+	motor
 ) {
 	for(x=[0:1]) {
 		for(y=[0:1]) {
 			translate([
-				-nema_sizes[size][1]/2 + nema_sizes[size][1]*x,
-				-nema_sizes[size][1]/2 + nema_sizes[size][1]*y,
+				-nema_sizes[motor[0]][1]/2 + nema_sizes[motor[0]][1]*x,
+				-nema_sizes[motor[0]][1]/2 + nema_sizes[motor[0]][1]*y,
 				0
 			]) {
 				kerf_cylinder(
-					r = nema_sizes[size][2]/2,
+					r = nema_sizes[motor[0]][2]/2,
 					h = 1000
 				);
 			}	
 		}
 	}
 	kerf_cylinder(
-		r = nema_sizes[size][3]/2 + 1,
+		r = motor[2]/2 + 1,
 		h = 1000
 	);
 }
