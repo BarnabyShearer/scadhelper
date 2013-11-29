@@ -2,6 +2,7 @@
 #
 # Copyright 2013 <b@Zi.iS>
 # License GPLv2
+.PRECIOUS: *.stl
 
 SLIC3R=~/.Slic3r/slic3r.ini $(shell grep ".ini" ~/.Slic3r/slic3r.ini | sed "s/^\(.\+\) = /~\/.Slic3r\/\1\//")
 
@@ -12,7 +13,7 @@ all: $(DEST)
 
 %.stl: %.scad
 	#HACK: Sub-shell openscad to fix broken pipe message
-	$(shell openscad -m make -o "$@" -d "$@.deps" "$<")
+	$(shell openscad -D preview=0 -m make -o "$@" -d "$@.deps" "$<")
 
 %.gcode: %.stl $(SLIC3R)
 	slic3r $(addprefix --load ,$(SLIC3R)) -o "$@" "$<"
