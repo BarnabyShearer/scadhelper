@@ -30,6 +30,7 @@ thrust_bearing = [
 
 module thrust_bearing(
 	size = 10,
+	rotation = 0,
 	id
 ) {
 	part(id, str("Thrust bearing: ID", thrust_bearing[size][0], "mm, OD", thrust_bearing[size][1], "mm, width", thrust_bearing[size][2], "mm"))
@@ -66,7 +67,7 @@ module thrust_bearing(
 			rotate([
 				0,
 				0,
-				360/9*i
+				360/9*i + rotation/2
 			]) {
 				translate([
 					thrust_bearing[size][0]/2 + (thrust_bearing[size][1] - thrust_bearing[size][0])/2/2,
@@ -88,7 +89,7 @@ module thrust_bearing(
 		rotate([
 			180,
 			0,
-			0
+			rotation
 		]) {
 			rotate_extrude() {
 				translate([
