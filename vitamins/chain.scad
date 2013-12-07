@@ -188,7 +188,7 @@ function chain_length(
 module chain(
 	chain,
 	gears,
-	pos,
+	pos = 0,
 	id
 ) {
 	if($children!=len(gears)) {
@@ -264,7 +264,7 @@ module chain_span(
 						i,
 						0
 					]) {
-						%cylinder(
+						cylinder(
 							r = chain[0]/4,
 							h = chain[1]
 						);

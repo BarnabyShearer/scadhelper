@@ -57,7 +57,7 @@ module part(
 	name
 ) {
 	if(PART<1 || PART==id) {
-		echo(str("PART", id, ":", name));
+		if(id>=0) echo(str("PART", id, ":", name));
 		for(i=[0:$children-1]) child(i);
 	}	
 }

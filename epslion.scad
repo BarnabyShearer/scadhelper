@@ -29,3 +29,5 @@ module e(
 		if($children>0) for (i = [0 : $children-1]) child(i);
 	}
 }
+
+function space(pitch, i) = -pitch/2 + pitch*i;
