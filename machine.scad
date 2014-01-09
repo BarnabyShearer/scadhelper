@@ -5,8 +5,6 @@
  * License CC BY 3.0
  */
 
-include <main.scad>;
-
 ZCUT = 0;
 XOFF = 0;
 YOFF = 0;
