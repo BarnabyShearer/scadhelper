@@ -40,7 +40,7 @@ module bend(
 		cylinder_between(
 			PointAlongBez4(c[0], c[1], c[2], c[3], step/(steps)),
 			PointAlongBez4(c[0], c[1], c[2], c[3], (step+1)/(steps))
-		) child();
+		) children(0);
 	}
 }
 
@@ -76,7 +76,7 @@ module cylinder_between(p1, p2) {
 					1,
 					sqrt(v*v)
 				]) {
-					child();
+					children(0);
 				}
 			}
 		}

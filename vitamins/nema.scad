@@ -116,6 +116,6 @@ module nema(
 		0,
 		motor[1]
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }

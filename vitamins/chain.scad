@@ -237,7 +237,7 @@ module chain(
 				(360/gears[i][2]) 
 				- (i>0 ? _center_angle(gears[i], gears[i-1])+90: 0)
 			] * preview) {
-				child(i);
+				children(i);
 			}
 		}
 	}
@@ -319,7 +319,7 @@ module chain_gear(
 		0,
 		hub[1]
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }
 

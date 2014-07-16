@@ -26,7 +26,7 @@ module rod(
 		0,
 		h
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+		if($children) children([0:$children-1]);
 	}
 }
 
@@ -67,7 +67,7 @@ module threaded_rod(
 		0,
 		h
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }
 

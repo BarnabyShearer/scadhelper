@@ -122,6 +122,6 @@ module thrust_bearing(
 		0,
 		thrust_bearing[size][2]
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }
