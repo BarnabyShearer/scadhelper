@@ -6,6 +6,7 @@
  */
 
 include <../main.scad>;
+use <2d.scad>;
 
 module kerf_bend(
     a,
