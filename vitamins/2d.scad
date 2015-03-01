@@ -52,7 +52,7 @@ module 2d(
                                 (size[1]/2 - material[0]/2)*(2*y-1),
                                 0
                             ]) {
-                                kerf_cylinder(
+                                e() kerf_cylinder(
                                     r = drill[2*x + y]/2,
                                     h = material[0]
                                 );
@@ -63,7 +63,7 @@ module 2d(
                                 (size[1]/2 - material[0]/2)*(2*x-1)*(y),
                                 0
                             ]) {
-                                kerf_cylinder(
+                                e() kerf_cylinder(
                                     r = drill[2*x + y]/2,
                                     h = material[0]
                                 );

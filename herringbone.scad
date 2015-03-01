@@ -20,7 +20,7 @@ module herringbone(
 	h = 5,
 	h_hub = 5,
 ){
-	if(preview==1) {
+	if(preview==2) {
 		//Too slow for preview
 		cylinder(
 			r = circular_pitch*number_of_teeth/360,

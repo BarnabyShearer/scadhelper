@@ -25,24 +25,25 @@ m_tap = [
 
 module m_washer(
 	size = 3,
-	id
+	id,
+    fraction = 1
 ) {
 	part(id, str("Washer M", size)) color(color_steel) {
 		difference() {
 			cylinder(
 				r = size/2*2,
-				h = size*.2
+				h = size*.2 / fraction
 			);
 			e() cylinder(
 				r = size/2,
-				h = size*.2
+				h = size*.2 / fraction
 			);
 		}
 	}
 	translate([
 		0,
 		0,
-		size*.2
+		size*.2 / fraction
 	] * preview) {
 		if($children>0) for (i = [0 : $children-1]) child(i);
 	}

@@ -7,8 +7,6 @@
 
 include <../main.scad>;
 
-nema();
-
 nema_sizes = [
 	[],
 	[],
