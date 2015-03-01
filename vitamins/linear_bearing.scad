@@ -81,6 +81,6 @@ module linear_bearing(
 		0,
 		lmXuu[size][2]/2
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }

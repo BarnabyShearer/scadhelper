@@ -5,8 +5,6 @@
  * License CC BY 3.0
  */
 
-include <main.scad>;
-
 ZCUT = 0;
 XOFF = 0;
 YOFF = 0;
@@ -19,10 +17,10 @@ module drawing() {
 			YOFF,
 			ZCUT
 		]) {
-			for(i=[0:$children-1]) child(i);
+            if($children) children([0:$children-1]);
 		}
 	} else {
-		for(i=[0:$children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }
 
@@ -56,8 +54,8 @@ module part(
 	id,
 	name
 ) {
-	if(PART<1 || PART==id) {
+	if(PART<1 || PART==id || id<0) {
 		if(id>=0) echo(str("PART", id, ":", name));
-		for(i=[0:$children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}	
 }

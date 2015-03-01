@@ -69,7 +69,7 @@ module bearing60(
 		0,
 		bearing60_size[size][2]
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }
 
@@ -95,6 +95,6 @@ module bearing(
 		0,
 		size[2]
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }

@@ -45,7 +45,7 @@ module m_washer(
 		0,
 		size*.2 / fraction
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+		if($children) children([0:$children-1]);
 	}
 }
 
@@ -71,7 +71,7 @@ module m_nut(
 		0,
 		size*.8
 	] * preview) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }
 
@@ -111,7 +111,7 @@ module m_nylock(
 		0,
 		size
 	]) {
-		if($children>0) for (i = [0 : $children-1]) child(i);
+        if($children) children([0:$children-1]);
 	}
 }
 
