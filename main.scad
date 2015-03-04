@@ -9,3 +9,30 @@ include <config.scad>;
 use <epslion.scad>;
 use <easing.scad>;
 include <machine.scad>;
+
+nema_sizes = [
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [42.2, 31.04, 3],
+       [],
+       [],
+       [],
+       [],
+       [],
+       [57.15, 47.24, 5]
+];

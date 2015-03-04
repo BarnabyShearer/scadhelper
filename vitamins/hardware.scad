@@ -92,7 +92,7 @@ module m_nylock(
 				translate([
 					0,
 					0,
-					size*0.8
+					size*0.3
 				]) {
 					sphere(
 						r = size*1.8/2,

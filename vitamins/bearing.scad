@@ -77,7 +77,8 @@ module bearing(
 	size = bearing60_size[8],
 	id
 ) {
-	part(id, str("Radial bearing: ID", size[0], "mm, OD", size[1], "mm, width", size[2], "mm"))
+	part(id, str("Radial bearing: ID", size[0], "mm, OD", size[1], "×", 
+size[2], "mm"))
 	color(color_steel) {
 		difference() {
 			cylinder(

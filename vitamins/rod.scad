@@ -14,7 +14,7 @@ module rod(
 	h = 250,
 	id
 ) {
-	part(id, str("Smooth rod ", r*2, "mm x ", h, "mm"))
+	part(id, str(h, "mm of ", r*2, "mm smooth rod"))
 	color(color_steel) {
 		cylinder(
 			r = r,
@@ -33,10 +33,10 @@ module rod(
 module threaded_rod(
 	r = 8/2,
 	h = 250,
-	pitch = 1.26,
+	pitch = 1.25,
 	id
 ) {
-	part(id, str("Threaded rod ", r*2, "mm x ", h, "mm")) {
+	part(id, str(h, "mm of ", r*2, "×", pitch, "mm threaded rod")) {
 		color([.5,.5,.5]) cylinder(
 			r = r*.8,
 			h = h
